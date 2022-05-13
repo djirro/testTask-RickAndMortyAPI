@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct InfoAndResults: Codable {
+struct InfoAndResults: Decodable {
     let info: Info
     let results: [Results]
 }
 
-struct Info: Codable {
+struct Info: Decodable {
     let count: Int
     let pages: Int
     let next: String?
     let prev: String?
 }
 
-struct Results: Codable {
+struct Results: Decodable {
     let name: String
     let status: String
     let species: String
@@ -28,6 +28,6 @@ struct Results: Codable {
     let image: String
 }
 
-struct Location: Codable {
+struct Location: Decodable {
     let name: String
 }
