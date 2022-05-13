@@ -13,7 +13,7 @@
         <!--Главное меню-->
         <scene sceneID="lGI-pb-cqA">
             <objects>
-                <viewController id="S38-Fc-lzE" customClass="ViewController" customModule="RickAndMortyAPI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S38-Fc-lzE" customClass="MainVC" customModule="RickAndMortyAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MIF-eE-aW1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,7 +54,7 @@
                                     <constraint firstAttribute="width" secondItem="TRK-S2-FTo" secondAttribute="height" multiplier="414:503" id="cBb-ai-BgU"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="RMN-Bo-zci">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="150" id="RMN-Bo-zci" customClass="MainTableViewCell" customModule="RickAndMortyAPI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RMN-Bo-zci" id="H2g-Td-UHC">
@@ -78,21 +78,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnI-qn-ouz">
-                                                    <rect key="frame" x="156" y="48" width="238" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="cPH-0k-kig"/>
-                                                        <constraint firstAttribute="width" constant="238" id="kUt-eF-3Fx"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eV-Ah-qKS">
                                                     <rect key="frame" x="156" y="77" width="238" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="238" id="N3r-NK-bQP"/>
                                                         <constraint firstAttribute="height" constant="21" id="hMU-A6-w2o"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnI-qn-ouz">
+                                                    <rect key="frame" x="156" y="48" width="238" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="cPH-0k-kig"/>
+                                                        <constraint firstAttribute="width" constant="238" id="kUt-eF-3Fx"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -115,6 +115,12 @@
                                                 <constraint firstItem="oTo-3h-msc" firstAttribute="top" secondItem="H2g-Td-UHC" secondAttribute="topMargin" id="qmf-aB-OIV"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="characterGender" destination="3eV-Ah-qKS" id="59V-6g-0Ax"/>
+                                            <outlet property="characterImage" destination="gk9-pl-pqY" id="JPW-gh-GQc"/>
+                                            <outlet property="characterName" destination="oTo-3h-msc" id="adi-ZQ-Yi2"/>
+                                            <outlet property="characterSpecies" destination="LnI-qn-ouz" id="tCH-rh-Mse"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -135,10 +141,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Главное меню" id="hwe-Oq-nUb"/>
+                    <connections>
+                        <outlet property="tableView" destination="TRK-S2-FTo" id="Wva-2w-40j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXt-we-k74" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-43.478260869565219" y="297.32142857142856"/>
+            <point key="canvasLocation" x="87" y="62"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZYc-tk-W3l">
@@ -153,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCh-VT-Q3t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1323" y="297"/>
+            <point key="canvasLocation" x="1120" y="62"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BEJ-rY-j1F">
@@ -171,7 +180,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D6b-78-lQ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-953.62318840579712" y="297.99107142857139"/>
+            <point key="canvasLocation" x="-883" y="62"/>
         </scene>
     </scenes>
     <resources>
